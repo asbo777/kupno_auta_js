@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>American Cars with 14 days door-to-door delivery</title>
+    <!-- Dołącz plik CSS biblioteki Flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+
+  </head>
+  <body>
+    
+     <div class="car-grid">
+  <!-- Samochody zostaną wygenerowane tutaj dynamicznie przez JavaScript -->
+        </div>
+      <!-- Podsumowanie wybranego auta -->
+      <div class="summary hidden">
+        <h2>Congratulations for choosing</h2>
+        <br><br>
+      </div>
+    <div class="form-container hidden">
+      <form id="carForm">
+ <!-- Selected Car -->
+ <p id="selectedCar" class="selected-car"></p> <!-- Zmiana na paragraf -->
+    <!-- Total Price -->
+    <p id="totalPrice" name="totalPrice" readonly></p>
+        <label for="finance">Financing</label><br>
+        <input type="radio" id="financeLeasing" name="finance" value="leasing">
+        <label for="financeLeasing"> Leasing </label><br>
+        <input type="radio" id="financeCash" name="finance" value="cash">
+        <label for="financeCash"> Cash </label><br><br>
+        <label for="ownerName">Owner's full name:</label><br>
+        <input type="text" id="ownerName" name="ownerName"><br><br>
+        
+        <label for="deliveryDate">Delivery date:</label><br>
+        <!-- Zamiast select użyjemy input typu text -->
+        <input type="text" id="deliveryDate" name="deliveryDate" readonly><br><br>
+
+        <label for="accessories">Add to order:</label><br>
+<div id="accessories-list">
+  <input type="checkbox" id="audioSystem" name="accessories" value="Bose Car Audio System with Subwoofer" data-price="500">
+  <label for="audioSystem">Bose Car Audio System with Subwoofer - $500</label><br>
+
+  <input type="checkbox" id="winterTires" name="accessories" value="Winter Tires Set" data-price="300">
+  <label for="winterTires">Winter Tires Set - $300</label><br>
+
+  <input type="checkbox" id="wheelCovers" name="accessories" value="Wheel Covers" data-price="100">
+  <label for="wheelCovers">Wheel Covers - $100</label><br>
+
+  <input type="checkbox" id="dashcam" name="accessories" value="Dashboard Camera" data-price="200">
+  <label for="dashcam">Dashboard Camera - $200</label><br>
+
+  <input type="checkbox" id="spareBulbs" name="accessories" value="Spare Bulbs" data-price="50">
+  <label for="spareBulbs">Spare Bulbs - $50</label><br>
+</div>
+
+          <!-- Opcje akcesoriów zostaną wygenerowane dynamicznie przez JavaScript -->
+        </select><br><br>
+
+        <button type="button" id="purchaseBtn">Purchase</button>
+        <button type="button" id="returnBtn">Get Back</button>
+      </form>
+      <p class="error-msg hidden">All fields must be filled out!</p>
+      <p class="success-msg hidden">Purchase successful!</p>
+    </div>
+  </div>
+  
+</div>
+<footer>
+  <div class="footer-spacer"></div>
+<div class="footer">
+  <div class="footer-text"><STORNG>SEARCH BY BRAND:    </STORNG> </div>
+  <div class="footer--icons">
+    <div class="icon-wrapper">
+      <img width="45" height="45" src="https://img.icons8.com/ios-filled/50/subaru.png" alt="subaru"
+      data-brand="subaru"/>
+    </div>
+    <div class="icon-wrapper">
+      <img width="45" height="45" src="https://img.icons8.com/ios-filled/50/toyota.png" alt="toyota" data-brand="toyota"/>
+    </div>
+    <div class="icon-wrapper">
+      <img width="45" height="45" src="https://img.icons8.com/ios/50/honda.png" alt="honda" data-brand="honda"/>
+    </div>
+    <div class="icon-wrapper">
+      <img width="45" height="45" src="https://img.icons8.com/carbon-copy/100/chevrolet.png" alt="chevrolet" data-brand="chevrolet"/>
+    </div>
+    <div class="icon-wrapper">
+      <img width="45" height="45" src="https://img.icons8.com/color/48/nissan.png" alt="nissan" data-brand="nissan"/>
+    </div>
+    <div class="icon-wrapper">
+      <img width="45" height="45" src="https://img.icons8.com/color/48/kia.png" alt="kia"data-brand="kia"/>
+    </div>
+    <img width="45" height="45" src="https://img.icons8.com/color/48/mazda.png" alt="mazda" data brand="mazda"/>
+  </div>
+ </div></div>
+ <button id="backToMainViewBtn" style="display: none;">BACK TO MAIN VIEW</button>
+ </footer>
+ <!-- Dołączenie pliku JavaScript z biblioteką datepicker -->
+
+    <script src="script.js"></script>
+  </body>
+</html>

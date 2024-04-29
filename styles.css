@@ -1,0 +1,203 @@
+/* Import Roboto font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  color: rgb(217, 199, 199);
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+  align-items: center;
+  min-height: 100vh; /* Ustawienie minimalnej wysokości na całą wysokość widoku */
+}
+
+.hidden {
+  display: none;
+}
+
+/* Kontener dla formularza */
+.form-container {
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%; /* Dostosowanie szerokości do widoku */
+  height: auto; /* Dostosowanie wysokości do zawartości */
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 70px; /* Dodatkowy margines na dole formularza */
+  max-height: calc(100% - 150px); /* Odejmujemy wysokość stopki */
+  overflow-y: auto; /* Dodajemy pasek przewijania, gdy formularz jest zbyt długi */
+}
+
+h2 {
+  text-align: center;
+  margin: 20px auto;
+}
+.form-container h2 {
+  text-align: center;
+  justify-content: center;
+}
+
+.form-container label {
+  font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="radio"],
+.form-container button {
+  margin-bottom: 5px; /* Odstęp między elementami */
+}
+
+.error-msg,
+.success-msg {
+  text-align: center;
+}
+
+.hidden {
+  display: none; /* Ukrycie komunikatów */
+}
+
+/* Kontener dla siatki samochodów */
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Automatycznie dopasowuje kolumny do szerokości kontenera */
+  gap: 10px; /* Odstęp między elementami siatki */
+  max-width: calc(95% - 20px); /* Maksymalna szerokość minus marginesy */
+  margin: 50px auto; /* Centrowanie siatki poziomo */
+  background-color: #333333;
+}
+
+/* Każdy pojedynczy wpis samochodu */
+.car-entry {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  height: auto; /* Ustawienie wysokości na automatyczną, aby dopasować się do zawartości */
+  max-height: 400px; /* Ustawienie maksymalnej wysokości */
+  padding: 10px;
+}
+
+.car-image {
+  max-width: 100%;
+  height: auto; /* Zachowanie proporcji */
+  min-height: 150px;
+  max-height: 150px;
+  background-size: cover; /* Zapewnienie, że obraz tła pokrywa cały obszar */
+  background-position: center; /* Wyśrodkowanie obrazu tła */
+}
+
+.car-entry:hover {
+  transform: scale(1.05);
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(185, 158, 158);
+  color: rgb(65, 60, 60);
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  margin: 10 auto;
+  padding: 5px;
+  z-index: 1; /* Przesunięcie stopki na wierzch */
+}
+
+.footer-text {
+  color: #333333;
+  font-weight: 900;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+
+.footer--icons {
+  display: flex;
+  align-items: center; /* Wyśrodkowanie ikon w pionie */
+  padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer-text {
+    display: none;
+  }
+}
+
+.icon-wrapper {
+  margin: 0 10px; /* Dodaj margines poziomy dla każdej ikony */
+  max-width: calc(83% - 10px);
+}
+
+p {
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+@keyframes fireworks-animation {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.fireworks {
+  position: fixed;
+  top: 100vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px; /* Szerokość konfetti */
+  height: 10px; /* Wysokość konfetti */
+  background-color: #ffffff; /* Kolor konfetti */
+  border-radius: 50%;
+  animation: confetti-animation 2s ease-in-out; /* Użyj animacji confetti-animation */
+}
+
+#returnBtn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#returnBtn:hover {
+  background-color: #555;
+}
+
+#purchaseBtn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#purchaseBtn:hover {
+  background-color: #555;
+}
+
+#backToMainViewBtn {
+  background-color: #827d7d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0;
+}
