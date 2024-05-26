@@ -3,125 +3,174 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <title>Cars from USA door-to-door</title>
-    <!-- Dołącz plik CSS biblioteki Flatpickr -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-   <!-- Dołączenie pliku JavaScript z biblioteką datepicker -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <link rel="stylesheet" href="styles.css" />
-
   </head>
   <body>
-    
-     <div class="car-grid">
-  <!-- Samochody zostaną wygenerowane tutaj dynamicznie przez JavaScript -->
-
-        </div>
-        <button id="backToMainViewBtn" class="hidden">ALL CARS</button>
-      <!-- Podsumowanie wybranego auta -->
-      
+    <div class="car-grid">
+      <!-- Samochody zostaną wygenerowane tutaj dynamicznie przez JavaScript -->
+    </div>
+    <button id="backToMainViewBtn" class="hidden">ALL CARS</button>
     <div class="form-container hidden">
       <form id="carForm">
- <!-- Selected Car -->
- <p id="selectedCar" class="selected-car"></p> <!-- Zmiana na paragraf -->
+        <p id="selectedCar" class="selected-car"></p>
+        <p id="carPrice" name="carPrice" readonly></p>
 
-    <p id="carPrice" name="carPrice" readonly></p>
-        <label for="finance">Financing</label><br>
-        <input type="radio" id="financeLeasing" name="finance" value="leasing">
-        <label for="financeLeasing"> Leasing </label><br>
-        <input type="radio" id="financeCash" name="finance" value="cash">
-        <label for="financeCash"> Cash </label><br><br>
-        <label for="ownerName">Owner's full name:</label><br>
-        <input type="text" id="ownerName" name="ownerName"><br><br>
-        
-        <label for="deliveryDate">Delivery date:</label><br>
-        <!-- Zamiast select użyjemy input typu text -->
-        <input type="text" id="deliveryDate" name="deliveryDate"><br><br>
+        <label for="finance">Financing</label><br />
+        <input
+          type="radio"
+          id="financeLeasing"
+          name="finance"
+          value="leasing"
+        />
+        <label for="financeLeasing"> Leasing </label><br />
 
-        <!-- <label for="accessories">Add to order:</label><br> -->
-<div id="accessories-list">
-<label for="accessories">Add to order:</label><br>
-<ul id="accessories-list">
-  <li>
-    <span>Bose Car Audio System with Subwoofer - $500</span>
-    <button class="quantity-btn minus">-</button>
-    <input type="text" class="quantity-input" value="0">
-    <button class="quantity-btn plus">+</button>
-  </li>
-  <li>
-    <span>Winter Tires Set - $300</span>
-    <button class="quantity-btn minus">-</button>
-    <input type="text" class="quantity-input" value="0">
-    <button class="quantity-btn plus">+</button>
-  </li>
-  <li>
-    <span>Wheel Covers - $100</span>
-    <button class="quantity-btn minus">-</button>
-    <input type="text" class="quantity-input" value="0">
-    <button class="quantity-btn plus">+</button>
-  </li>
-  <li>
-    <span>Dashboard Camera - $200</span>
-    <button class="quantity-btn minus">-</button>
-    <input type="text" class="quantity-input" value="0">
-    <button class="quantity-btn plus">+</button>
-  </li>
-  <li>
-    <span>Spare Bulbs - $50</span>
-    <button class="quantity-btn minus">-</button>
-    <input type="text" class="quantity-input" value="0">
-    <button class="quantity-btn plus">+</button>
-  </li>
-</ul>
-<p id="totalPrice" name="totalPrice"></p> <!-- Total Price -->
-</div>
+        <input
+          type="radio"
+          id="financeCash"
+          name="finance"
+          value="cash"
+          required
+        />
 
-          <!-- Opcje akcesoriów zostaną wygenerowane dynamicznie przez JavaScript -->
-  
+        <label for="financeCash"> Cash </label><br /><br />
+
+        <label for="ownerName">New owner's full name:</label><br />
+        <input type="text" id="ownerName" name="ownerName" required /><br />
+        <span id="ownerNameError" class="error-msg hidden"
+          >Full name is required.</span
+        ><br /><br />
+
+        <label for="deliveryDate">Delivery date:</label><br />
+        <input
+          type="text"
+          id="deliveryDate"
+          name="deliveryDate"
+          required
+        /><br />
+        <span id="deliveryDateError" class="error-msg hidden"
+          >Delivery date is required.</span
+        ><br /><br />
+
+        <div id="accessories-list">
+          <label for="accessories">Add to order:</label><br />
+          <ul id="accessories-list">
+            <li>
+              <span class="accessory-name"
+                >Bose Car Audio System with Subwoofer - $500</span
+              >
+              <button class="quantity-btn minus">-</button>
+              <input type="text" class="quantity-input" value="0" />
+              <button class="quantity-btn plus">+</button>
+            </li>
+            <li>
+              <span class="accessory-name">Winter Tires Set - $300</span>
+              <button class="quantity-btn minus">-</button>
+              <input type="text" class="quantity-input" value="0" />
+              <button class="quantity-btn plus">+</button>
+            </li>
+            <li>
+              <span class="accessory-name">Wheel Covers - $100</span>
+              <button class="quantity-btn minus">-</button>
+              <input type="text" class="quantity-input" value="0" />
+              <button class="quantity-btn plus">+</button>
+            </li>
+            <li>
+              <span class="accessory-name">Dashboard Camera - $200</span>
+              <button class="quantity-btn minus">-</button>
+              <input type="text" class="quantity-input" value="0" />
+              <button class="quantity-btn plus">+</button>
+            </li>
+            <li>
+              <span class="accessory-name">Spare Bulbs - $50</span>
+              <button class="quantity-btn minus">-</button>
+              <input type="text" class="quantity-input" value="0" />
+              <button class="quantity-btn plus">+</button>
+            </li>
+          </ul>
+          <p id="totalPrice" name="totalPrice"></p>
+        </div>
         <button type="button" id="purchaseBtn">Purchase</button>
         <button type="button" id="returnBtn">Back to Main View</button>
       </form>
       <p class="error-msg hidden">All fields must be filled out!</p>
       <p class="success-msg hidden">Purchase successful!</p>
     </div>
-  </div>
- 
-</div>
-<div class="summary hidden"></div>
-
-<footer>
-  <div class="footer-spacer"></div>
-<div class="footer">
-  <div class="footer-text">SEARCH BY BRAND:   </div>
-  <div class="footer--icons">
-    <div class="icon-wrapper">
-      <img width="45" height="45" src="https://img.icons8.com/ios-filled/50/subaru.png" alt="subaru"
-      data-brand="subaru"/>
-    </div>
-    <div class="icon-wrapper">
-      <img width="45" height="45" src="https://img.icons8.com/ios-filled/50/toyota.png" alt="toyota" data-brand="toyota"/>
-    </div>
-    <div class="icon-wrapper">
-      <img width="45" height="45" src="https://img.icons8.com/ios/50/honda.png" alt="honda" data-brand="honda"/>
-    </div>
-    <div class="icon-wrapper">
-      <img width="45" height="45" src="https://img.icons8.com/carbon-copy/100/chevrolet.png" alt="chevrolet" data-brand="chevrolet"/>
-    </div>
-    <div class="icon-wrapper">
-      <img width="45" height="45" src="https://img.icons8.com/color/48/nissan.png" alt="nissan" data-brand="nissan"/>
-    </div>
-    <div class="icon-wrapper">
-      <img width="45" height="45" src="https://img.icons8.com/color/48/kia.png" alt="kia"data-brand="kia"/>
-    </div>
-    <img width="45" height="45" src="https://img.icons8.com/color/48/mazda.png" alt="mazda" data brand="mazda"/>
-  </div>
- </div>
- 
- </footer>
-
- 
+    <div class="summary hidden"></div>
+    <footer>
+      <div class="footer-spacer"></div>
+      <div class="footer">
+        <div class="footer-text">SEARCH BY BRAND:</div>
+        <div class="footer--icons">
+          <div class="icon-wrapper">
+            <img
+              width="45"
+              height="45"
+              src="https://img.icons8.com/ios-filled/50/subaru.png"
+              alt="subaru"
+              data-brand="subaru"
+            />
+          </div>
+          <div class="icon-wrapper">
+            <img
+              width="45"
+              height="45"
+              src="https://img.icons8.com/ios-filled/50/toyota.png"
+              alt="toyota"
+              data-brand="toyota"
+            />
+          </div>
+          <div class="icon-wrapper">
+            <img
+              width="45"
+              height="45"
+              src="https://img.icons8.com/ios/50/honda.png"
+              alt="honda"
+              data-brand="honda"
+            />
+          </div>
+          <div class="icon-wrapper">
+            <img
+              width="45"
+              height="45"
+              src="https://img.icons8.com/carbon-copy/100/chevrolet.png"
+              alt="chevrolet"
+              data-brand="chevrolet"
+            />
+          </div>
+          <div class="icon-wrapper">
+            <img
+              width="45"
+              height="45"
+              src="https://img.icons8.com/color/48/nissan.png"
+              alt="nissan"
+              data-brand="nissan"
+            />
+          </div>
+          <div class="icon-wrapper">
+            <img
+              width="45"
+              height="45"
+              src="https://img.icons8.com/color/48/kia.png"
+              alt="kia"
+              data-brand="kia"
+            />
+          </div>
+          <img
+            width="45"
+            height="45"
+            src="https://img.icons8.com/color/48/mazda.png"
+            alt="mazda"
+            data-brand="mazda"
+          />
+        </div>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

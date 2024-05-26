@@ -29,6 +29,8 @@ body {
   border-radius: 10px;
   background-color: #f9f9f9;
   margin-bottom: 70px; /* Dodatkowy margines na dole formularza */
+  margin-left: 10px;
+  margin-right: 10px;
   max-height: calc(100% - 150px); /* Odejmujemy wysokość stopki */
   overflow-y: auto; /* Dodajemy pasek przewijania, gdy formularz jest zbyt długi */
 }
@@ -144,6 +146,15 @@ p {
   text-align: left;
 }
 
+.summary-content {
+  text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.summary-content p {
+  text-align: center; /* Wyśrodkowanie tekstu */
+  margin: 10px auto; /* Dodanie marginesu na górze i dołu, a także automatyczne centrowanie */
+}
+
 @keyframes fireworks-animation {
   0% {
     transform: translateY(0) rotate(0);
@@ -218,6 +229,7 @@ p {
 
 #backToMainViewBtn:hover {
   background-color: #666;
+  align-items: left;
 }
 
 li {
@@ -263,4 +275,14 @@ li {
 .summary-image {
   max-width: 100%;
   margin-top: 20px;
+}
+.summary-content ul {
+  text-align: center; /* Ustawienie tekstu na lewą stronę */
+  margin: 0 auto; /* Automatyczne centrowanie listy */
+  max-width: 80%; /* Maksymalna szerokość listy */
+}
+.summary-content ul li {
+  text-align: center; /* Wyśrodkowanie tekstu wewnątrz elementu li */
+  margin: 0 auto; /* Automatyczne centrowanie elementu li */
+  display: inline-block; /* Element będzie zachowywał się podobnie do tekstu */
 }
