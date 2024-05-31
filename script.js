@@ -488,8 +488,6 @@ function updateTotalPrice() {
     return;
   }
 
-  console.log("Car Price:", carPrice);
-
   let totalAccessoriesPrice = 0;
   selectedAccessories = []; // Clear previous selections
 
@@ -504,9 +502,6 @@ function updateTotalPrice() {
       .querySelector(".accessory-name")
       .textContent.trim();
 
-    console.log("Accessory Price:", accessoryPrice);
-    console.log("Quantity:", quantity);
-
     if (quantity > 0) {
       selectedAccessories.push({
         name: accessoryName,
@@ -517,10 +512,8 @@ function updateTotalPrice() {
 
     totalAccessoriesPrice += accessoryPrice * quantity;
   });
-  console.log("Total Accessories Price:", totalAccessoriesPrice);
 
   const totalPrice = carPrice + totalAccessoriesPrice;
-  console.log("Total Price:", totalPrice);
 
   const totalPriceElement = document.getElementById("totalPrice");
   if (totalPriceElement) {
@@ -551,7 +544,7 @@ document.querySelectorAll(".quantity-btn").forEach((button) => {
     } else if (event.target.classList.contains("minus") && quantity > 0) {
       quantity -= 1;
     }
-    console.log("After Quantity Update:", quantity);
+
     quantityInput.value = quantity;
 
     updateTotalPrice();
@@ -575,6 +568,7 @@ function validateForm() {
   // Sprawdź, czy pole daty dostawy nie jest puste
   if (!deliveryDateInput.value.trim()) {
     document.getElementById("deliveryDateError").classList.remove("hidden");
+    // document.getElementById("ownerNameError").classList.add("hidden"); // Ukryj komunikat o braku imienia i nazwiska
     return false; // Formularz nieprawidłowy
   } else {
     document.getElementById("deliveryDateError").classList.add("hidden");
@@ -596,11 +590,18 @@ document.getElementById("purchaseBtn").addEventListener("click", function () {
   const ownerNameInput = document.getElementById("ownerName");
   const deliveryDateInput = document.getElementById("deliveryDate");
 
-  if (!ownerNameInput.value || !deliveryDateInput.value) {
+  if (!ownerNameInput.value) {
     document.getElementById("ownerNameError").classList.remove("hidden");
-    return; // Zatrzymanie procesu zakupu z powodu nieprawidłowego formularza
+    return;
   } else {
     document.getElementById("ownerNameError").classList.add("hidden");
+  }
+
+  if (!deliveryDateInput.value) {
+    document.getElementById("deliveryDateError").classList.remove("hidden");
+    return;
+  } else {
+    document.getElementById("deliveryDateError").classList.add("hidden");
   }
 
   if (validateForm()) {
@@ -640,7 +641,7 @@ document.getElementById("purchaseBtn").addEventListener("click", function () {
     }
 
     // Dodajemy zdjęcie wybranego auta na samym dole
-    console.log("Car Image Source:", carImageSrc);
+
     summaryContent += `
       <img src="${carImageSrc}" alt="${selectedCar.brand} ${selectedCar.model}" class="summary-image" style="width: 50%; height: auto;">
     `;
